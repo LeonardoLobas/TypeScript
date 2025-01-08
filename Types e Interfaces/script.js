@@ -1,8 +1,7 @@
 "use strict";
 async function fetchProduct() {
-    const response = await fetch('https://api.origamid.dev/json/notebook.json');
+    const response = await fetch("https://api.origamid.dev/json/notebook.json");
     const product = await response.json();
-    console.log(product);
     showProduct(product);
 }
 fetchProduct();
