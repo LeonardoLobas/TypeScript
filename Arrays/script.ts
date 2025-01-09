@@ -15,22 +15,22 @@ async function fetchCursos() {
     mostrarCursos(data);
 }
 
-function mostrarCursos(cursos: infoCursos[]) {
-    cursos.forEach((curso) => {
+function mostrarCursos(dados: infoCursos[]) {
+    dados.forEach((dado) => {
         let color;
-        if (curso.nivel === "iniciante") {
+        if (dado.nivel === "iniciante") {
             color = "blue";
-        } else if (curso.nivel === "avancado") {
+        } else if (dado.nivel === "avancado") {
             color = "red";
         }
         document.body.innerHTML += `
       <div>
-        <h2 style="color: ${color};">${curso.nome}</h2>
-        <p>Horas: ${curso.horas}</p>
-        <p>Aulas: ${curso.aulas}</p>
-        <p>Tipo: ${curso.gratuito ? "Gratuito" : "Pago"}</p>
-        <p>Tags: ${curso.tags.join(", ")}</p>
-        <p>Aulas: ${curso.idAulas.join(" | ")}</p>
+        <h2 style="color: ${color};">${dado.nome}</h2>
+        <p>Horas: ${dado.horas}</p>
+        <p>Aulas: ${dado.aulas}</p>
+        <p>Tipo: ${dado.gratuito ? "Gratuito" : "Pago"}</p>
+        <p>Tags: ${dado.tags.join(", ")}</p>
+        <p>Aulas: ${dado.idAulas.join(" | ")}</p>
       </div>
     `;
     });
