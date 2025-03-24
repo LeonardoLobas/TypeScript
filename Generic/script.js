@@ -9,3 +9,4 @@ async function handleData() {
     const notebook = await getData("https://api.origamid.dev/json/notebook.json");
     console.log(notebook.nome);
 }
+handleData();

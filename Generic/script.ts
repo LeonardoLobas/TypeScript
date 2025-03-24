@@ -16,3 +16,5 @@ async function handleData() {
     );
     console.log(notebook.nome);
 }
+
+handleData();
