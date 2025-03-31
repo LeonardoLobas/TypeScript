@@ -9,6 +9,8 @@ const subtrair = (a: number, b: number): number => a - b;
 
 subtrair(10, 2);
 
+function arredondar(valor: string): string;
+function arredondar(valor: number): number;
 function arredondar(valor: number | string): number | string {
     if (typeof valor === "number") {
         return Math.ceil(valor);
