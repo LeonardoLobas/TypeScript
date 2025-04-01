@@ -2,7 +2,8 @@
   "compilerOptions": {
     
     "target": "ESNext",
-    "strict": true                                  
-
+    "strict": true
+                                     
   }
+
 }
