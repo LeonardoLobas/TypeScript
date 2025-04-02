@@ -1,15 +1,32 @@
 "use strict";
-async function fetchProduto() {
-    const response = await fetch("https://api.origamid.dev/json/notebook.json");
+async function fetchCursos() {
+    const response = await fetch("https://api.origamid.dev/json/cursos.json");
     const json = await response.json();
-    handleProduto(json);
+    handleCursos(json);
 }
-function handleProduto(data) {
-    if ("preco" in data) {
-        document.body.innerHTML += `
-        <p>Nome: ${data.nome}</p>
-        <p>Preço: R$ ${data.preco + 100}</p>
-      `;
+fetchCursos();
+function isCurso(curso) {
+    if (curso &&
+        typeof curso === "object" &&
+        "nome" in curso &&
+        "horas" in curso &&
+        "tags" in curso) {
+        return true;
+    }
+    else {
+        return false;
     }
 }
-fetchProduto();
+function handleCursos(data) {
+    if (Array.isArray(data)) {
+        data.filter(isCurso).forEach((item) => {
+            document.body.innerHTML += `
+          <div>
+            <h2>${item.nome}</h2>
+            <p>${item.horas}</p>
+            <p>${item.tags.join(", ")}</p>
+          </div>
+        `;
+        });
+    }
+}
